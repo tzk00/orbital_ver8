@@ -74,7 +74,7 @@ CUSTOM_REQUEST_SENDER = None
 
 ENABLE_MIDDLEWARE = False
 
-token = '5546411933:AAG_5VKCoJG2AyrCaNpj3jm9cpoltzIpm_4'
+token = '5490423263:AAFApMMH6j1dcxXxUH1ZeOpLNMxIwV8oOu0'
 
 ### DATASETS ###
 USERS = []
@@ -90,6 +90,7 @@ ratingthree = "Three"
 ratingfour = "Four"
 ratingfive = "Five"
 count = []
+predict_data = []
 types_cuisine = ["Chinese", "Japanese", "Thai", "European", "Indian", "Vegetarian"]
 types_budget = ["$", "$$", "$$$"]
 #SAMPLE_DATABASE = [['Li Bai Cantonese Restaurant', '4.4', '39 Scotts Rd, Sheraton Towers Singapore, Singapore 228230', '228230', 'Chinese', '$$$'], ['Joie', '4.5', '181 Orchard Rd, #12 - 01, Singapore 238896', '238896', 'Vegetarian', '$$$'], ['Grand Shanghai Restaurant', '4.2', "390 Havelock Rd, Level 1 King's Centre, Singapore 169662", '169662', 'Chinese', '$$$'], ['Swee Choon Tim Sum Restaurant', '4.2', '183/185/187/189, Jln Besar, 191/193, 208882', '208882', 'chinese', '$$'], ['Tenya Orchard Central', '4.3', '181 Orchard Rd, #B1-01 Orchard Central, Singapore 238896', '238896', 'Japanese', '$$'], ['Yan Restaurant at National Gallery Singapore 宴中餐馆', '4.1', "1 Saint Andrew's Road #05-02 National Gallery, Singapore 178957", '178957', 'Chinese', '$$$'], ['Blue Jasmine', '4', '10 Farrer Park Station Rd, Level 5 Holiday Inn Singapore, Singapore 217564', '217564', 'Thai', '$$'], ['Empress', '4.3', '1 Empress Pl, #01-03 Asian Civilisations Museum, Singapore 179555', '179555', 'Chinese', '$$$'], ['Dong Bei Xiao Chu', '4.4', '12 Upper Cross St, Singapore 058329', '058329', 'Chinese', '$$'], ['Wah Lok Cantonese Restaurant', '4.4', '76 Bras Basah Rd, Singapore 189558', '189558', 'Chinese', '$$$'], ['The Masons Table', '4.4', '23A Coleman St, Singapore 179806', '179806', 'Restaurant', '$$'], ['Botan, Pekin Street', '4.2', '37 Pekin St, #01-01 Far East Square, Singapore 048767', '048767', 'Japanese', '$$'], ['Nalan Restaurant (City Hall)', '4', '13 Stamford Rd, #B2-54 Capitol Singapore, Singapore 178905', '178905', 'Vegetarian', '$$'], ['Shiv Sagar Veg. Restaurant', '3.6', '172 Race Course Rd, Singapore 218605', '218605', 'Vegetarian', '$$'], ['Zam Zam Restaurant, Singapore', '4.2', '697-699 North Bridge Rd, Singapore 198675', '198675', 'Indian', '$'], ['Imperial Treasure Cantonese Cuisine', '4.3', '02-112, 1 Kim Seng Promenade, Great World, 237994', '237994', 'Chinese', '$$$'], ['Komala Vilas Restaurant, Singapore', '4.2', '76-78 Serangoon Rd, Singapore 217981', '217981', 'Vegetarian', '$$'], ['Misaki', '4.4', '12 Marina Blvd, #01-01, Singapore 018982', '018982', 'Japanese', '$$'], ['Poulet + Brasserie - ION Orchard', '4.8', '2 Orchard Turn, #B3-21 ION Orchard, 238801', '238801', 'European', '$$'], ['Cherry Garden', '4.4', '5 Raffles Ave, Singapore 039797', '039797', 'Chinese', '$$$'], ['SUN with MOON Japanese Dining & Cafe', '4.3', '501 Orchard Rd, #03 -15 Wheelock Place, Singapore 238880', '238880', 'Japanese', '$$'], ['Imperial Treasure Super Peking Duck', '4.4', '05-42/45, Paragon, 290 Orchard Rd, 238859', '238859', 'Chinese', '$$$'], ['Peach Garden', '3.7', '65 Chulia St, #33 floor, 01, Singapore 049513', '049513', 'Chinese', '$$$'], ['Imperial Treasure Steamboat Restaurant', '4.1', '2 Orchard Turn, #04-12A ION Orchard, Singapore 238801', '238801', 'Chinese', '$$$'], ['Da Luca Italian Restaurant', '4.3', 'Goldhill Plaza #01-19/21, #1, Singapore 308899', '308899', 'European', '$$$'], ['Treasures Yi Dian Xin', '4.3', 'B1-37, Raffles City Shopping Centre, 252 North Bridge Rd, 179103', '179103', 'Chinese', '$$$'], ['Herbivore', '4.4', '190 Middle Rd, #01-13/14 Fortune Centre, Singapore 188979', '188979', 'Vegetarian', '$$$'], ['Kai Garden (Marina Square)', '4.3', '6 Raffles Boulevard #03-128A/128B, 039594', '039594', 'Chinese', '$$$'], ['Swatow Seafood', '3.9', '181 Lor 4 Toa Payoh, #02-602, Singapore 310181', '310181', 'Chinese', '$$'], ['itadakimasu by PARCO', '3.9', '100 Tras St, #02-10/11, #03 - 10 to 15 and #03 - K1, 079027', '079027', 'Japanese', '$$'], ['Cassia', '4.7', '1 The Knolls, Sentosa Island, 098297', '098297', 'Chinese', '$$$'], ['Crystal Jade Dining IN', '4.1', '11 HarbourFront Walk, #01-112 VivoCity, Singapore 098585', '098585', 'Chinese', '$$'], ['Ichiban Sushi (Toa Payoh)', '3.7', '490 #01-12 Lor 6 Toa Payoh, HDB Hub, Singapore 310493', '310493', 'Japanese', '$$'], ['Whampoa Keng Fish Head Steamboat @ Balestier', '4.1', '556 Balestier Rd, Singapore 329872', '329872', 'Restaurant', '$$'], ['Beng Hiang Restaurant', '3.9', '135 Jurong Gateway Rd, #02-337, Singapore 600135', '600135', 'Chinese', '$$'], ['Donya Japanese Cuisine @ TOA PAYOH 126', '3.5', '126 Lor 1 Toa Payoh, Singapore 310126', '310126', 'Japanese', '$'], ['Real Food, Orchard Central', '4.1', '181 Orchard Rd, #02-16 to 19, Singapore 238896', '238896', 'Vegetarian', '$$']]
@@ -346,6 +347,7 @@ def predict(my_id):
         rest_recs['score'] = rest_recs['mean'] * rest_recs['count']
         rest_recs.sort_values('score', ascending = False)
         rest_data = food_df[food_df['restaurant_id'] == rest_recs.index[0]]
+        REST_ID.append(rest_data.values[0][0])
         return 'We have noticed you have no ratings for any restaurants yet, do help to give the restaurants you visited a rating to help us give you a more personalized recommendation :)' + '\nCurrently the most popular option among our users: ' + rest_data.values[0][1] + '\nAddress: ' + rest_data.values[0][2]
     
     filt = (ratings_df['user_id'] == my_id)
@@ -376,6 +378,7 @@ def predict(my_id):
     #getting the best rated
     top_recs = rest_recs.sort_values('score', ascending = False)
     rest_data = food_df[food_df['restaurant_id'] == top_recs.index[0]]
+    REST_ID.append(rest_data.values[0][0])
     return rest_data.values[0][1] + '\nAddress: ' +rest_data.values[0][2]
     
 ### Machine Learning(End) ###
@@ -487,7 +490,7 @@ def one(update: Update, context: CallbackContext) -> int:
     ]
     reply_markup = InlineKeyboardMarkup(keyboard)
     query.edit_message_text(
-        text="You chose Chinese. Next choose a budget", reply_markup=reply_markup
+        text="You chose Chinese. Next choose a budget" + "\n" + "$: 10 and under" + "\n" + "$$: 10 - 25" + "\n" + "$$$: 25 - 45", reply_markup=reply_markup
     )
     return FIRST
 
@@ -507,7 +510,7 @@ def two(update: Update, context: CallbackContext) -> int:
     ]
     reply_markup = InlineKeyboardMarkup(keyboard)
     query.edit_message_text(
-        text="You chose Japanese. Next choose a budget", reply_markup=reply_markup
+        text="You chose Japanese. Next choose a budget" + "\n" + "$: 10 and under" + "\n" + "$$: 10 - 25" + "\n" + "$$$: 25 - 45", reply_markup=reply_markup
     )
     return FIRST
 
@@ -527,7 +530,7 @@ def three(update: Update, context: CallbackContext) -> int:
     ]
     reply_markup = InlineKeyboardMarkup(keyboard)
     query.edit_message_text(
-        text="You chose Thai. Next choose a budget", reply_markup=reply_markup
+        text="You chose Thai. Next choose a budget" + "\n" + "$: 10 and under" + "\n" + "$$: 10 - 25" + "\n" + "$$$: 25 - 45", reply_markup=reply_markup
     )
     return FIRST
 
@@ -547,7 +550,7 @@ def four(update: Update, context: CallbackContext) -> int:
     ]
     reply_markup = InlineKeyboardMarkup(keyboard)
     query.edit_message_text(
-        text="You chose European. Next choose a budget", reply_markup=reply_markup
+        text="You chose European. Next choose a budget" + "\n" + "$: 10 and under" + "\n" + "$$: 10 - 25" + "\n" + "$$$: 25 - 45", reply_markup=reply_markup
     )
     return FIRST
 
@@ -567,7 +570,7 @@ def five(update: Update, context: CallbackContext) -> int:
     ]
     reply_markup = InlineKeyboardMarkup(keyboard)
     query.edit_message_text(
-        text="You chose Indian. Next choose a budget", reply_markup=reply_markup
+        text="You chose Indian. Next choose a budget" + "\n" + "$: 10 and under" + "\n" + "$$: 10 - 25" + "\n" + "$$$: 25 - 45", reply_markup=reply_markup
     )
     return FIRST
 
@@ -587,7 +590,7 @@ def six(update: Update, context: CallbackContext) -> int:
     ]
     reply_markup = InlineKeyboardMarkup(keyboard)
     query.edit_message_text(
-        text="You chose Vegetarian. Next choose a budget", reply_markup=reply_markup
+        text="You chose Vegetarian. Next choose a budget" + "\n" + "$: 10 and under" + "\n" + "$$: 10 - 25" + "\n" + "$$$: 25 - 45", reply_markup=reply_markup
     )
     return FIRST
 
@@ -640,7 +643,16 @@ def eleven(update: Update, context: CallbackContext) -> int:
     SAMPLE_USERS = mycursor.fetchall()
     real_user = list(filter(lambda x : x[1] == USERS[-1], SAMPLE_USERS))[0][0]
     context.bot.send_message(chat_id=update.effective_chat.id, text = f"{predict(real_user)}")
-    return ConversationHandler.END
+    keyboard = [
+                [
+                    InlineKeyboardButton("Yes", callback_data=str(TWELVE)),
+                    InlineKeyboardButton("No", callback_data=str(THIRTEEN)),
+    
+                ]
+            ]
+    reply_markup = InlineKeyboardMarkup(keyboard)
+    context.bot.send_message(chat_id=update.effective_chat.id, text = "Did you visit the restaurant?", reply_markup=reply_markup)
+    return FIRST
 
 def twelve(update: Update, context: CallbackContext) -> int:
     query = update.callback_query
@@ -677,6 +689,7 @@ def twelve(update: Update, context: CallbackContext) -> int:
 def thirteen(update: Update, context: CallbackContext) -> int:
     query = update.callback_query
     query.answer()
+    context.bot.send_message(chat_id=update.effective_chat.id, text = "Thank you. See you again!")
     return ConversationHandler.END
        
 
